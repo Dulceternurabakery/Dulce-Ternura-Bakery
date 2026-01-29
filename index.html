@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Ternura | Repostería Gourmet</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --beige: #F9F6F2;
+            --cafe-oscuro: #2D1B14;
+            --cafe-medio: #6B4F3B;
+            --dorado-suave: #C5A059;
+            --negro: #1A1A1A;
+            --blanco: #FFFFFF;
+            --whatsapp: #25d366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--beige);
+            color: var(--negro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(249, 246, 242, 0.95);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(45, 27, 20, 0.05);
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--cafe-oscuro);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--negro);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-links a:hover, .social-icon:hover { color: var(--dorado-suave); }
+
+        /* --- HERO BANNER --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                        url('https://th.bing.com/th/id/R.a99a9f34bc3b36da353bbd693d998a5a?rik=c7l8X7yzFVmLOg&riu=http%3a%2f%2fstatic.tiempo.com.mx%2fuploads%2fimagen%2fimagen%2f336937%2fprincipal_iuyr938tt.jpg&ehk=y6QeNCtqOK%2bCnOqc6LS7jksKmZXKzoFJXIMraaxp9Qs%3d&risl=&pid=ImgRaw&r=0'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--blanco);
+        }
+
+        .hero-content h1 { font-size: 5.5rem; font-weight: 400; margin-bottom: 10px; }
+        .hero-content p { font-size: 1rem; letter-spacing: 5px; text-transform: uppercase; }
+
+        /* --- SECCIÓN HISTORIA --- */
+        .historia-container { padding: 100px 15%; text-align: center; background: var(--blanco); }
+        .historia-container h2 { font-size: 3.5rem; color: var(--cafe-oscuro); margin-bottom: 30px; }
+        .historia-text { font-size: 1.2rem; font-family: 'Cormorant Garamond', serif; font-style: italic; max-width: 800px; margin: 0 auto; color: var(--cafe-medio); }
+        .divider { width: 60px; height: 2px; background: var(--dorado-suave); margin: 20px auto; }
+
+        /* --- MENÚ --- */
+        .menu-section { padding: 80px 10%; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+        .menu-category h3 { font-size: 2rem; border-bottom: 1px solid var(--cafe-medio); margin-bottom: 30px; padding-bottom: 10px; color: var(--cafe-oscuro); }
+        .menu-item { display: flex; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px dotted #ccc; padding-bottom: 5px; }
+        .price { font-weight: 600; color: var(--cafe-medio); }
+
+        /* --- SECCIÓN ÓRDENES --- */
+        .order-section { background-color: var(--blanco); padding: 100px 15%; }
+        .order-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--beige);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .order-form { display: grid; gap: 20px; }
+        .order-form input, .order-form select, .order-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 3px;
+        }
+        .btn-order {
+            background: var(--cafe-oscuro);
+            color: var(--blanco);
+            padding: 15px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-order:hover { background: var(--cafe-medio); }
+
+        /* --- WHATSAPP FLOTANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); color: white; }
+        /* --- INSTAGRAM FLOTANTE --- */
+.instagram-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Se ubica a la izquierda */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.instagram-float:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+        /* --- FOOTER --- */
+        footer { background: var(--cafe-oscuro); color: var(--beige); padding: 60px 10%; text-align: center; }
+        .social-links { margin: 20px 0; font-size: 1.5rem; }
+        .social-links a { color: var(--beige); margin: 0 15px; transition: 0.3s; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 3.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="brand-name">DULCE TERNURA</a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#ordenar">Hacer Orden</a></li>
+            <li><a href="https://www.instagram.com/dulce_ternura_bakery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </nav>
+
+    <a href="https://wa.me/529837005535?text=¡Hola!%20Me%20gustaría%20hacer%20un%20pedido%20en%20Dulce%20Ternura." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <a href="https://www.instagram.com/dulce_ternura_bakery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="instagram-float" target="_blank">
+    <i class="fab fa-instagram"></i>
+</a>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content" data-aos="zoom-in">
+            <p>Amor en cada bocado</p>
+            <h1>Dulce Ternura Bakery</h1>
+        </div>
+    </section>
+
+    <section id="nosotros" class="historia-container">
+        <h2 data-aos="fade-up">Mi Historia</h2>
+        <div class="divider" data-aos="stretch-right"></div>
+        <p class="historia-text" data-aos="fade-up">
+            "Hoy nace Dulce Ternura, un pedacito de mi corazón hecho postre. Este sueño comenzó con ilusión, paciencia y el deseo de compartir algo más que sabores: momentos que abracen el alma. Bienvenidos a este dulce rincón, donde cada receta está hecha con amor."
+        </p>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="menu-grid">
+            <div class="menu-category" data-aos="fade-right">
+                <h3>Roles</h3>
+                <div class="menu-item"><span>Rol Tradicional Glaseado</span><span class="price">$45</span></div>
+                <div class="menu-item"><span>Rol Relleno (oreo/queso bola)</span><span class="price">$65</span></div>
+                <div class="menu-item"><span>Pack de 4 Roles (con topping a escoger)</span><span class="price">$200</span></div>
+                <div class="menu-item"><span>Pack de 8 Mini Con Topping</span><span class="price">$80</span></div>
+                <div class="menu-item"><span>Rosca de Roles</span><span class="price">$250</span></div>
+                <div class="menu-item"><span>TOPPINGS</span><span class="price">+10</span></div>
+                <div class="menu-item"><span>Cajeta, Nutella, Oreo</span><span class="price"></span></div>    
+            </div>
+            <div class="menu-category" data-aos="fade-left">
+                <h3>Para El Antojo</h3>
+                <div class="menu-item"><span>Pan de Zanahoria</span><span class="price">$165</span></div>
+                <div class="menu-item"><span>Brownies</span><span class="price">$35</span></div>
+                <div class="menu-item"><span>Mostachon</span><span class="price">$320</span></div>
+                <div class="menu-item"><span>Pastelitos tres leches</span><span class="price">$40</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ordenar" class="order-section">
+        <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
+            <h2>Hacer una Orden</h2>
+            <p>Cuéntanos qué delicia deseas pedir</p>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="order-container" data-aos="fade-up">
+            <form id="orderForm" class="order-form">
+                <input type="text" id="nombre" placeholder="Tu Nombre" required>
+                <select id="producto" required>
+                    <option value="" disabled selected>Selecciona un producto</option>
+                    <option value="Roles Tradicionales">Roles Tradicionales</option>
+                    <option value="Rol Relleno (oreo/queso bola)">Rol Relleno (oreo/queso bola)</option>
+                    <option value="Pack de 8 Mini Con Topping">Pack de 8 Mini Con Topping</option>
+                    <option value="Rosca de Roles">Rosca de Roles</option>
+                    <option value="Pan de Zanahoria">Pan de Zanahoria</option>
+                    <option value="Brownies">Brownies</option>
+                    <option value="Mostachón">Mostachón</option>
+                    <option value="Pastelitos tres leches">Pastelitos tres leches</option>
+                </select>
+                <textarea id="detalles" rows="4" placeholder="Detalles adicionales (ej. fecha de entrega, dedicatoria...)"></textarea>
+                <button type="submit" class="btn-order">Enviar pedido por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <h2 class="brand-name" style="color: var(--beige)">DULCE TERNURA</h2>
+        <div class="social-links">
+            <a href="https://www.instagram.com/dulce_ternura_bakery?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/529837005535" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>© 2026 DULCE TERNURA. Mérida, Yucatán.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: false });
+
+        // Lógica para enviar el formulario a WhatsApp
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const producto = document.getElementById('producto').value;
+            const detalles = document.getElementById('detalles').value;
+            
+            const mensaje = `Hola Dulce Ternura! Mi nombre es ${nombre}. Me gustaría ordenar: ${producto}. Detalles: ${detalles}`;
+            const url = `https://wa.me/529837005535?text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
